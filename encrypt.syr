@@ -1,0 +1,645 @@
+Release 13.4 - xst O.87xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> 
+Reading design: encrypt.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "encrypt.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "encrypt"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : encrypt
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "sbox.v" in library work
+Compiling verilog file "mixcolword.v" in library work
+Module <sbox> compiled
+Compiling verilog file "substitutebyte.v" in library work
+Module <mixcolword> compiled
+Compiling verilog file "shiftrow.v" in library work
+Module <substitutebyte> compiled
+Compiling verilog file "mixcol.v" in library work
+Module <shiftrow> compiled
+Compiling verilog file "keygeneration.v" in library work
+Module <mixcol> compiled
+Compiling verilog file "roundlast.v" in library work
+Module <keygeneration> compiled
+Compiling verilog file "round.v" in library work
+Module <roundlast> compiled
+Compiling verilog file "encrypt.v" in library work
+Module <round> compiled
+Module <encrypt> compiled
+No errors in compilation
+Analysis of file <"encrypt.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <encrypt> in library <work>.
+
+Analyzing hierarchy for module <round> in library <work>.
+
+Analyzing hierarchy for module <roundlast> in library <work>.
+
+Analyzing hierarchy for module <keygeneration> in library <work>.
+
+Analyzing hierarchy for module <substitutebyte> in library <work>.
+
+Analyzing hierarchy for module <shiftrow> in library <work>.
+
+Analyzing hierarchy for module <mixcol> in library <work>.
+
+Analyzing hierarchy for module <sbox> in library <work>.
+
+Analyzing hierarchy for module <mixcolword> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <encrypt>.
+Module <encrypt> is correct for synthesis.
+ 
+Analyzing module <round> in library <work>.
+Module <round> is correct for synthesis.
+ 
+Analyzing module <keygeneration> in library <work>.
+	Calling function <rcon>.
+	Calling function <rcon>.
+	Calling function <rcon>.
+	Calling function <rcon>.
+Module <keygeneration> is correct for synthesis.
+ 
+Analyzing module <sbox> in library <work>.
+Module <sbox> is correct for synthesis.
+ 
+Analyzing module <substitutebyte> in library <work>.
+Module <substitutebyte> is correct for synthesis.
+ 
+Analyzing module <shiftrow> in library <work>.
+Module <shiftrow> is correct for synthesis.
+ 
+Analyzing module <mixcol> in library <work>.
+Module <mixcol> is correct for synthesis.
+ 
+Analyzing module <mixcolword> in library <work>.
+Module <mixcolword> is correct for synthesis.
+ 
+Analyzing module <roundlast> in library <work>.
+Module <roundlast> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <shiftrow>.
+    Related source file is "shiftrow.v".
+Unit <shiftrow> synthesized.
+
+
+Synthesizing Unit <sbox>.
+    Related source file is "sbox.v".
+    Found 256x8-bit ROM for signal <c>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <sbox> synthesized.
+
+
+Synthesizing Unit <mixcolword>.
+    Related source file is "mixcolword.v".
+    Found 3-bit xor3 for signal <out<31:29>>.
+    Found 1-bit xor3 for signal <out<28>>.
+    Found 1-bit xor2 for signal <out<27>>.
+    Found 1-bit xor3 for signal <out<26>>.
+    Found 1-bit xor2 for signal <out<25>>.
+    Found 4-bit xor4 for signal <out<24:21>>.
+    Found 1-bit xor3 for signal <out<20>>.
+    Found 1-bit xor2 for signal <out<19>>.
+    Found 1-bit xor4 for signal <out<18>>.
+    Found 1-bit xor3 for signal <out<17>>.
+    Found 1-bit xor4 for signal <out<16>>.
+    Found 4-bit xor3 for signal <out<15:12>>.
+    Found 1-bit xor4 for signal <out<11>>.
+    Found 2-bit xor2 for signal <out<10:9>>.
+    Found 1-bit xor4 for signal <out<8>>.
+    Found 3-bit xor5 for signal <out<7:5>>.
+    Found 1-bit xor5 for signal <out<4>>.
+    Found 1-bit xor4 for signal <out<3>>.
+    Found 1-bit xor5 for signal <out<2>>.
+    Found 1-bit xor3 for signal <out<1>>.
+    Found 1-bit xor3 for signal <out<0>>.
+    Found 1-bit xor2 for signal <out_11$xor0000> created at line 54.
+    Found 1-bit xor2 for signal <out_12$xor0000> created at line 53.
+    Found 1-bit xor2 for signal <out_17$xor0001> created at line 47.
+    Found 1-bit xor2 for signal <out_18$xor0000> created at line 46.
+    Found 1-bit xor2 for signal <out_19$xor0000> created at line 45.
+    Found 1-bit xor2 for signal <out_20$xor0000> created at line 44.
+    Found 1-bit xor2 for signal <out_20$xor0001> created at line 44.
+    Found 1-bit xor2 for signal <out_21$xor0000> created at line 43.
+    Found 1-bit xor2 for signal <out_22$xor0000> created at line 42.
+    Found 1-bit xor2 for signal <out_23$xor0000> created at line 41.
+    Found 1-bit xor2 for signal <out_24$xor0000> created at line 39.
+    Found 1-bit xor2 for signal <out_25$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <out_25$xor0001> created at line 38.
+    Found 1-bit xor2 for signal <out_25$xor0002> created at line 38.
+    Found 1-bit xor3 for signal <out_26$xor0000> created at line 37.
+    Found 1-bit xor2 for signal <out_26$xor0001> created at line 37.
+    Found 1-bit xor3 for signal <out_27$xor0000> created at line 36.
+    Found 1-bit xor2 for signal <out_28$xor0000> created at line 35.
+    Found 1-bit xor2 for signal <out_28$xor0001> created at line 35.
+    Found 1-bit xor2 for signal <out_28$xor0002> created at line 35.
+    Found 1-bit xor2 for signal <out_28$xor0003> created at line 35.
+    Found 1-bit xor3 for signal <out_29$xor0000> created at line 34.
+    Found 1-bit xor2 for signal <out_29$xor0001> created at line 34.
+    Found 1-bit xor3 for signal <out_30$xor0000> created at line 33.
+    Found 1-bit xor2 for signal <out_30$xor0001> created at line 33.
+    Found 1-bit xor2 for signal <out_31$xor0000> created at line 32.
+    Found 1-bit xor2 for signal <out_31$xor0001> created at line 32.
+    Found 1-bit xor2 for signal <out_31$xor0002> created at line 32.
+    Found 1-bit xor2 for signal <out_4$xor0000> created at line 62.
+    Found 1-bit xor2 for signal <out_8$xor0000> created at line 57.
+    Found 1-bit xor2 for signal <out_9$xor0000> created at line 56.
+    Summary:
+	inferred  26 Xor(s).
+Unit <mixcolword> synthesized.
+
+
+Synthesizing Unit <keygeneration>.
+    Related source file is "keygeneration.v".
+    Found 16x128-bit ROM for signal <rn$rom0000>.
+    Found 32-bit xor3 for signal <kout<127:96>>.
+    Found 1-bit xor3 for signal <kout<95>>.
+    Found 31-bit xor2 for signal <kout<94:64>>.
+    Found 1-bit xor2 for signal <kout<63>>.
+    Found 31-bit xor3 for signal <kout<62:32>>.
+    Found 1-bit xor3 for signal <kout<31>>.
+    Found 31-bit xor3 for signal <kout<30:0>>.
+    Found 1-bit xor2 for signal <kout_100$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_101$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_102$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_103$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_104$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_105$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_106$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_107$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_108$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_109$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_110$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_111$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_112$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_113$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_114$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_115$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_116$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_117$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_118$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_119$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_120$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_121$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_122$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_123$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_124$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_125$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_126$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_127$xor0000> created at line 38.
+    Found 1-bit xor3 for signal <kout_32$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_33$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_34$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_35$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_36$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_37$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_38$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_39$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_40$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_41$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_42$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_43$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_44$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_45$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_46$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_47$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_48$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_49$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_50$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_51$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_52$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_53$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_54$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_55$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_56$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_57$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_58$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_59$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_60$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_61$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_62$xor0000> created at line 40.
+    Found 1-bit xor3 for signal <kout_63$xor0000> created at line 40.
+    Found 1-bit xor2 for signal <kout_96$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_97$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_98$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <kout_99$xor0000> created at line 38.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  96 Xor(s).
+Unit <keygeneration> synthesized.
+
+
+Synthesizing Unit <substitutebyte>.
+    Related source file is "substitutebyte.v".
+Unit <substitutebyte> synthesized.
+
+
+Synthesizing Unit <mixcol>.
+    Related source file is "mixcol.v".
+Unit <mixcol> synthesized.
+
+
+Synthesizing Unit <round>.
+    Related source file is "round.v".
+    Found 128-bit xor2 for signal <out>.
+Unit <round> synthesized.
+
+
+Synthesizing Unit <roundlast>.
+    Related source file is "roundlast.v".
+    Found 128-bit xor2 for signal <out>.
+Unit <roundlast> synthesized.
+
+
+Synthesizing Unit <encrypt>.
+    Related source file is "encrypt.v".
+    Found 128-bit xor2 for signal <o1>.
+Unit <encrypt> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 210
+ 16x128-bit ROM                                        : 10
+ 256x8-bit ROM                                         : 200
+# Xors                                                 : 4199
+ 1-bit xor2                                            : 2292
+ 1-bit xor3                                            : 1356
+ 1-bit xor4                                            : 432
+ 1-bit xor5                                            : 108
+ 128-bit xor2                                          : 11
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 210
+ 16x128-bit ROM                                        : 10
+ 256x8-bit ROM                                         : 200
+# Xors                                                 : 4199
+ 1-bit xor2                                            : 2292
+ 1-bit xor3                                            : 1356
+ 1-bit xor4                                            : 432
+ 1-bit xor5                                            : 108
+ 128-bit xor2                                          : 11
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <encrypt> ...
+
+Optimizing unit <mixcolword> ...
+
+Optimizing unit <keygeneration> ...
+
+Optimizing unit <substitutebyte> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block encrypt, actual ratio is 333.
+Optimizing block <encrypt> to meet ratio 100 (+ 5) of 4656 slices :
+WARNING:Xst:2254 - Area constraint could not be met for block <encrypt>, final ratio is 326.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : encrypt.ngr
+Top Level Output File Name         : encrypt
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 384
+
+Cell Usage :
+# BELS                             : 53861
+#      LUT2                        : 760
+#      LUT3                        : 632
+#      LUT4                        : 28365
+#      MUXF5                       : 12904
+#      MUXF6                       : 6400
+#      MUXF7                       : 3200
+#      MUXF8                       : 1600
+# IO Buffers                       : 384
+#      IBUF                        : 256
+#      OBUF                        : 128
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                    15175  out of   4656   325% (*) 
+ Number of 4 input LUTs:              29757  out of   9312   319% (*) 
+ Number of IOs:                         384
+ Number of bonded IOBs:                 384  out of    232   165% (*) 
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 76.699ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 50995817162948221398383853568 / 128
+-------------------------------------------------------------------------
+Delay:               76.699ns (Levels of Logic = 90)
+  Source:            key<74> (PAD)
+  Destination:       out<103> (PAD)
+
+  Data Path: key<74> to out<103>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            12   1.106   0.969  key_74_IBUF (key_74_IBUF)
+     LUT2:I0->O          128   0.612   1.251  Mxor_o1_Result<74>1 (o1<74>)
+     LUT4:I0->O            1   0.612   0.000  r1/s1/s7/Mrom_c142 (r1/s1/s7/Mrom_c142)
+     MUXF5:I0->O           1   0.278   0.000  r1/s1/s7/Mrom_c14_f5 (r1/s1/s7/Mrom_c14_f5)
+     MUXF6:I1->O           1   0.451   0.000  r1/s1/s7/Mrom_c14_f6 (r1/s1/s7/Mrom_c14_f6)
+     MUXF7:I1->O           1   0.451   0.000  r1/s1/s7/Mrom_c14_f7 (r1/s1/s7/Mrom_c14_f7)
+     MUXF8:I1->O           9   0.451   0.849  r1/s1/s7/Mrom_c14_f8 (r1/sub<79>)
+     LUT3:I0->O            3   0.612   0.454  r1/m1/m4/Mxor_out_12_xor0000_Result1 (r1/m1/m4/out_12_xor0000)
+     LUT4:I3->O            1   0.612   0.000  r1/m1/m4/Mxor_out<11>_xo<0>11 (r1/m1/m4/Mxor_out<11>_xo<0>1)
+     MUXF5:I1->O           3   0.278   0.603  r1/m1/m4/Mxor_out<11>_xo<0>1_f5 (r1/mxc<11>)
+     LUT3:I0->O          126   0.612   1.250  r1/Mxor_out_Result<11>1 (o2<11>)
+     LUT4:I0->O            1   0.612   0.000  r2/s1/s15/Mrom_c143 (r2/s1/s15/Mrom_c143)
+     MUXF5:I1->O           1   0.278   0.000  r2/s1/s15/Mrom_c14_f5_0 (r2/s1/s15/Mrom_c14_f51)
+     MUXF6:I0->O           1   0.451   0.000  r2/s1/s15/Mrom_c14_f6 (r2/s1/s15/Mrom_c14_f6)
+     MUXF7:I1->O           1   0.451   0.000  r2/s1/s15/Mrom_c14_f7 (r2/s1/s15/Mrom_c14_f7)
+     MUXF8:I1->O           6   0.451   0.721  r2/s1/s15/Mrom_c14_f8 (r2/sub<15>)
+     LUT3:I0->O            3   0.612   0.454  r2/m1/m2/Mxor_out_12_xor0000_Result1 (r2/m1/m2/out_12_xor0000)
+     LUT4:I3->O            1   0.612   0.000  r2/m1/m2/Mxor_out<11>_xo<0>11 (r2/m1/m2/Mxor_out<11>_xo<0>1)
+     MUXF5:I1->O           1   0.278   0.509  r2/m1/m2/Mxor_out<11>_xo<0>1_f5 (r2/mxc<75>)
+     LUT3:I0->O          128   0.612   1.251  r2/Mxor_out_Result<75>1 (o3<75>)
+     LUT4:I0->O            1   0.612   0.000  r3/s1/s7/Mrom_c141 (r3/s1/s7/Mrom_c141)
+     MUXF5:I1->O           1   0.278   0.000  r3/s1/s7/Mrom_c14_f5 (r3/s1/s7/Mrom_c14_f5)
+     MUXF6:I1->O           1   0.451   0.000  r3/s1/s7/Mrom_c14_f6 (r3/s1/s7/Mrom_c14_f6)
+     MUXF7:I1->O           1   0.451   0.000  r3/s1/s7/Mrom_c14_f7 (r3/s1/s7/Mrom_c14_f7)
+     MUXF8:I1->O           7   0.451   0.754  r3/s1/s7/Mrom_c14_f8 (r3/sub<79>)
+     LUT2:I0->O            4   0.612   0.529  r3/m1/m4/Mxor_out_20_xor0000_Result1 (r3/m1/m4/out_20_xor0000)
+     LUT4:I2->O            1   0.612   0.000  r3/m1/m4/Mxor_out<17>_xo<0>11 (r3/m1/m4/Mxor_out<17>_xo<0>1)
+     MUXF5:I1->O           1   0.278   0.509  r3/m1/m4/Mxor_out<17>_xo<0>1_f5 (r3/mxc<17>)
+     LUT4:I0->O          128   0.612   1.168  r3/Mxor_out_Result<17>1 (o4<17>)
+     LUT4:I1->O            1   0.612   0.000  r4/s1/s14/Mrom_c21 (r4/s1/s14/Mrom_c21)
+     MUXF5:I1->O           1   0.278   0.000  r4/s1/s14/Mrom_c2_f5 (r4/s1/s14/Mrom_c2_f5)
+     MUXF6:I1->O           1   0.451   0.000  r4/s1/s14/Mrom_c2_f6 (r4/s1/s14/Mrom_c2_f6)
+     MUXF7:I1->O           1   0.451   0.000  r4/s1/s14/Mrom_c2_f7 (r4/s1/s14/Mrom_c2_f7)
+     MUXF8:I1->O           4   0.451   0.651  r4/s1/s14/Mrom_c2_f8 (r4/sub<17>)
+     LUT2:I0->O            3   0.612   0.520  r4/m1/m3/Mxor_out_25_xor0002_Result1 (r4/m1/m3/out_25_xor0002)
+     LUT4:I1->O            1   0.612   0.000  r4/m1/m3/Mxor_out<1>_xo<0>1 (r4/m1/m3/Mxor_out<1>_xo<0>)
+     MUXF5:I1->O           1   0.278   0.509  r4/m1/m3/Mxor_out<1>_xo<0>_f5 (r4/mxc<33>)
+     LUT4:I0->O          128   0.612   1.168  r4/Mxor_out_Result<33>1 (o5<33>)
+     LUT4:I1->O            1   0.612   0.000  r5/s1/s12/Mrom_c21 (r5/s1/s12/Mrom_c21)
+     MUXF5:I1->O           1   0.278   0.000  r5/s1/s12/Mrom_c2_f5 (r5/s1/s12/Mrom_c2_f5)
+     MUXF6:I1->O           1   0.451   0.000  r5/s1/s12/Mrom_c2_f6 (r5/s1/s12/Mrom_c2_f6)
+     MUXF7:I1->O           1   0.451   0.000  r5/s1/s12/Mrom_c2_f7 (r5/s1/s12/Mrom_c2_f7)
+     MUXF8:I1->O           4   0.451   0.651  r5/s1/s12/Mrom_c2_f8 (r5/sub<33>)
+     LUT2:I0->O            4   0.612   0.502  r5/m1/m4/Mxor_out_25_xor0001_Result1 (r5/m1/m4/out_25_xor0001)
+     LUT4:I3->O            1   0.612   0.000  r5/m1/m4/Mxor_out<17>_xo<0>11 (r5/m1/m4/Mxor_out<17>_xo<0>1)
+     MUXF5:I1->O           1   0.278   0.509  r5/m1/m4/Mxor_out<17>_xo<0>1_f5 (r5/mxc<17>)
+     LUT4:I0->O          128   0.612   1.251  r5/Mxor_out_Result<17>1 (o6<17>)
+     LUT4:I0->O            1   0.612   0.000  r6/s1/s14/Mrom_c65 (r6/s1/s14/Mrom_c65)
+     MUXF5:I1->O           1   0.278   0.000  r6/s1/s14/Mrom_c6_f5_1 (r6/s1/s14/Mrom_c6_f52)
+     MUXF6:I1->O           1   0.451   0.000  r6/s1/s14/Mrom_c6_f6_0 (r6/s1/s14/Mrom_c6_f61)
+     MUXF7:I0->O           1   0.451   0.000  r6/s1/s14/Mrom_c6_f7 (r6/s1/s14/Mrom_c6_f7)
+     MUXF8:I1->O           4   0.451   0.651  r6/s1/s14/Mrom_c6_f8 (r6/sub<19>)
+     LUT2:I0->O            3   0.612   0.520  r6/m1/m3/Mxor_out_11_xor0000_Result1 (r6/m1/m3/out_11_xor0000)
+     LUT4:I1->O            1   0.612   0.000  r6/m1/m3/Mxor_out<3>_xo<0>1 (r6/m1/m3/Mxor_out<3>_xo<0>)
+     MUXF5:I1->O           1   0.278   0.509  r6/m1/m3/Mxor_out<3>_xo<0>_f5 (r6/mxc<35>)
+     LUT4:I0->O          128   0.612   1.251  r6/Mxor_out_Result<35>1 (o7<35>)
+     LUT4:I0->O            1   0.612   0.000  r7/s1/s12/Mrom_c22 (r7/s1/s12/Mrom_c22)
+     MUXF5:I0->O           1   0.278   0.000  r7/s1/s12/Mrom_c2_f5 (r7/s1/s12/Mrom_c2_f5)
+     MUXF6:I1->O           1   0.451   0.000  r7/s1/s12/Mrom_c2_f6 (r7/s1/s12/Mrom_c2_f6)
+     MUXF7:I1->O           1   0.451   0.000  r7/s1/s12/Mrom_c2_f7 (r7/s1/s12/Mrom_c2_f7)
+     MUXF8:I1->O           4   0.451   0.651  r7/s1/s12/Mrom_c2_f8 (r7/sub<33>)
+     LUT2:I0->O            3   0.612   0.454  r7/m1/m4/Mxor_out_25_xor0001_Result1 (r7/m1/m4/out_25_xor0001)
+     LUT4:I3->O            1   0.612   0.000  r7/m1/m4/Mxor_out<17>_xo<0>11 (r7/m1/m4/Mxor_out<17>_xo<0>1)
+     MUXF5:I1->O           1   0.278   0.509  r7/m1/m4/Mxor_out<17>_xo<0>1_f5 (r7/mxc<17>)
+     LUT3:I0->O          128   0.612   1.251  r7/Mxor_out_Result<17>1 (o8<17>)
+     LUT4:I0->O            1   0.612   0.000  r8/s1/s14/Mrom_c65 (r8/s1/s14/Mrom_c65)
+     MUXF5:I1->O           1   0.278   0.000  r8/s1/s14/Mrom_c6_f5_1 (r8/s1/s14/Mrom_c6_f52)
+     MUXF6:I1->O           1   0.451   0.000  r8/s1/s14/Mrom_c6_f6_0 (r8/s1/s14/Mrom_c6_f61)
+     MUXF7:I0->O           1   0.451   0.000  r8/s1/s14/Mrom_c6_f7 (r8/s1/s14/Mrom_c6_f7)
+     MUXF8:I1->O           4   0.451   0.651  r8/s1/s14/Mrom_c6_f8 (r8/sub<19>)
+     LUT2:I0->O            3   0.612   0.520  r8/m1/m3/Mxor_out_11_xor0000_Result1 (r8/m1/m3/out_11_xor0000)
+     LUT4:I1->O            1   0.612   0.000  r8/m1/m3/Mxor_out<3>_xo<0>1 (r8/m1/m3/Mxor_out<3>_xo<0>)
+     MUXF5:I1->O           1   0.278   0.509  r8/m1/m3/Mxor_out<3>_xo<0>_f5 (r8/mxc<35>)
+     LUT4:I0->O          128   0.612   1.251  r8/Mxor_out_Result<35>1 (o9<35>)
+     LUT4:I0->O            1   0.612   0.000  r9/s1/s12/Mrom_c141 (r9/s1/s12/Mrom_c141)
+     MUXF5:I1->O           1   0.278   0.000  r9/s1/s12/Mrom_c14_f5 (r9/s1/s12/Mrom_c14_f5)
+     MUXF6:I1->O           1   0.451   0.000  r9/s1/s12/Mrom_c14_f6 (r9/s1/s12/Mrom_c14_f6)
+     MUXF7:I1->O           1   0.451   0.000  r9/s1/s12/Mrom_c14_f7 (r9/s1/s12/Mrom_c14_f7)
+     MUXF8:I1->O           7   0.451   0.671  r9/s1/s12/Mrom_c14_f8 (r9/sub<39>)
+     LUT2:I1->O            5   0.612   0.690  r9/m1/m4/Mxor_out_4_xor0000_Result1 (r9/m1/m4/out_4_xor0000)
+     LUT4:I0->O            1   0.612   0.000  r9/m1/m4/Mxor_out<3>_xo<0>1 (r9/m1/m4/Mxor_out<3>_xo<0>)
+     MUXF5:I1->O           1   0.278   0.509  r9/m1/m4/Mxor_out<3>_xo<0>_f5 (r9/mxc<3>)
+     LUT4:I0->O          128   0.612   1.251  r9/Mxor_out_Result<3>1 (o10<3>)
+     LUT4:I0->O            1   0.612   0.000  rl/s1/s16/Mrom_c22 (rl/s1/s16/Mrom_c22)
+     MUXF5:I0->O           1   0.278   0.000  rl/s1/s16/Mrom_c2_f5 (rl/s1/s16/Mrom_c2_f5)
+     MUXF6:I1->O           1   0.451   0.000  rl/s1/s16/Mrom_c2_f6 (rl/s1/s16/Mrom_c2_f6)
+     MUXF7:I1->O           1   0.451   0.000  rl/s1/s16/Mrom_c2_f7 (rl/s1/s16/Mrom_c2_f7)
+     MUXF8:I1->O           1   0.451   0.509  rl/s1/s16/Mrom_c2_f8 (rl/sub<1>)
+     LUT3:I0->O            1   0.612   0.357  rl/Mxor_out_Result<97>1 (out_97_OBUF)
+     OBUF:I->O                 3.169          out_97_OBUF (out<97>)
+    ----------------------------------------
+    Total                     76.699ns (46.955ns logic, 29.744ns route)
+                                       (61.2% logic, 38.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 281.00 secs
+Total CPU time to Xst completion: 280.72 secs
+ 
+--> 
+
+
+Total memory usage is 840744 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -1,0 +1,5 @@
+set -tmpdir "/home/tanmay/tanmay/vlsiProj/aes/xst/projnav.tmp"
+set -xsthdpdir "/home/tanmay/tanmay/vlsiProj/aes/xst"
+elaborate
+-ifn encrypt.prj
+-ifmt mixed

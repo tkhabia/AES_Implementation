@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompilers" num="247" delta="new" ><arg fmt="%s" index="1">&quot;aes_top.v&quot; line 45 </arg>Reference to <arg fmt="%s" index="2">vector wire &apos;out&apos;</arg> is not a legal reg or variable lvalue
+</msg>
+
+<msg type="error" file="HDLCompilers" num="106" delta="new" ><arg fmt="%s" index="1">&quot;aes_top.v&quot; line 45 </arg>Illegal left hand side of nonblocking assignment
+</msg>
+
+<msg type="error" file="HDLCompilers" num="108" delta="old" ><arg fmt="%s" index="1">&quot;aes_top.v&quot; line 45 </arg>Part-select of <arg fmt="%s" index="2">scalar reg array &apos;out1&apos;</arg> is illegal
+</msg>
+
+<msg type="error" file="HDLCompilers" num="107" delta="old" ><arg fmt="%s" index="1">&quot;aes_top.v&quot; line 45 </arg>Illegal right hand side of nonblocking assignment
+</msg>
+
+<msg type="error" file="HDLCompilers" num="106" delta="old" ><arg fmt="%s" index="1">&quot;aes_top.v&quot; line 46 </arg>Illegal left hand side of nonblocking assignment
+</msg>
+
+<msg type="error" file="HDLCompilers" num="52" delta="old" ><arg fmt="%s" index="1">&quot;aes_top.v&quot; line 46 </arg>Illegal operand(s) of binary operator &apos;<arg fmt="%s" index="2">&gt;&gt;</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="107" delta="old" ><arg fmt="%s" index="1">&quot;aes_top.v&quot; line 46 </arg>Illegal right hand side of nonblocking assignment
+</msg>
+
+</messages>
+

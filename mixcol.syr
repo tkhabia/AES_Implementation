@@ -1,0 +1,374 @@
+Release 13.4 - xst O.87xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Reading design: mixcol.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mixcol.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mixcol"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : mixcol
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "mixcolword.v" in library work
+Compiling verilog file "mixcol.v" in library work
+Module <mixcolword> compiled
+Module <mixcol> compiled
+No errors in compilation
+Analysis of file <"mixcol.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <mixcol> in library <work>.
+
+Analyzing hierarchy for module <mixcolword> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <mixcol>.
+Module <mixcol> is correct for synthesis.
+ 
+Analyzing module <mixcolword> in library <work>.
+Module <mixcolword> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <mixcolword>.
+    Related source file is "mixcolword.v".
+    Found 3-bit xor3 for signal <out<31:29>>.
+    Found 1-bit xor3 for signal <out<28>>.
+    Found 1-bit xor2 for signal <out<27>>.
+    Found 1-bit xor3 for signal <out<26>>.
+    Found 1-bit xor2 for signal <out<25>>.
+    Found 4-bit xor4 for signal <out<24:21>>.
+    Found 1-bit xor3 for signal <out<20>>.
+    Found 1-bit xor2 for signal <out<19>>.
+    Found 1-bit xor4 for signal <out<18>>.
+    Found 1-bit xor3 for signal <out<17>>.
+    Found 1-bit xor4 for signal <out<16>>.
+    Found 4-bit xor3 for signal <out<15:12>>.
+    Found 1-bit xor4 for signal <out<11>>.
+    Found 2-bit xor2 for signal <out<10:9>>.
+    Found 1-bit xor4 for signal <out<8>>.
+    Found 3-bit xor5 for signal <out<7:5>>.
+    Found 1-bit xor5 for signal <out<4>>.
+    Found 1-bit xor4 for signal <out<3>>.
+    Found 1-bit xor5 for signal <out<2>>.
+    Found 1-bit xor3 for signal <out<1>>.
+    Found 1-bit xor3 for signal <out<0>>.
+    Found 1-bit xor2 for signal <out_11$xor0000> created at line 54.
+    Found 1-bit xor2 for signal <out_12$xor0000> created at line 53.
+    Found 1-bit xor2 for signal <out_17$xor0001> created at line 47.
+    Found 1-bit xor2 for signal <out_18$xor0000> created at line 46.
+    Found 1-bit xor2 for signal <out_19$xor0000> created at line 45.
+    Found 1-bit xor2 for signal <out_20$xor0000> created at line 44.
+    Found 1-bit xor2 for signal <out_20$xor0001> created at line 44.
+    Found 1-bit xor2 for signal <out_21$xor0000> created at line 43.
+    Found 1-bit xor2 for signal <out_22$xor0000> created at line 42.
+    Found 1-bit xor2 for signal <out_23$xor0000> created at line 41.
+    Found 1-bit xor2 for signal <out_24$xor0000> created at line 39.
+    Found 1-bit xor2 for signal <out_25$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <out_25$xor0001> created at line 38.
+    Found 1-bit xor2 for signal <out_25$xor0002> created at line 38.
+    Found 1-bit xor3 for signal <out_26$xor0000> created at line 37.
+    Found 1-bit xor2 for signal <out_26$xor0001> created at line 37.
+    Found 1-bit xor3 for signal <out_27$xor0000> created at line 36.
+    Found 1-bit xor2 for signal <out_28$xor0000> created at line 35.
+    Found 1-bit xor2 for signal <out_28$xor0001> created at line 35.
+    Found 1-bit xor2 for signal <out_28$xor0002> created at line 35.
+    Found 1-bit xor2 for signal <out_28$xor0003> created at line 35.
+    Found 1-bit xor3 for signal <out_29$xor0000> created at line 34.
+    Found 1-bit xor2 for signal <out_29$xor0001> created at line 34.
+    Found 1-bit xor3 for signal <out_30$xor0000> created at line 33.
+    Found 1-bit xor2 for signal <out_30$xor0001> created at line 33.
+    Found 1-bit xor2 for signal <out_31$xor0000> created at line 32.
+    Found 1-bit xor2 for signal <out_31$xor0001> created at line 32.
+    Found 1-bit xor2 for signal <out_31$xor0002> created at line 32.
+    Found 1-bit xor2 for signal <out_4$xor0000> created at line 62.
+    Found 1-bit xor2 for signal <out_8$xor0000> created at line 57.
+    Found 1-bit xor2 for signal <out_9$xor0000> created at line 56.
+    Summary:
+	inferred  26 Xor(s).
+Unit <mixcolword> synthesized.
+
+
+Synthesizing Unit <mixcol>.
+    Related source file is "mixcol.v".
+Unit <mixcol> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Xors                                                 : 252
+ 1-bit xor2                                            : 148
+ 1-bit xor3                                            : 44
+ 1-bit xor4                                            : 48
+ 1-bit xor5                                            : 12
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Xors                                                 : 252
+ 1-bit xor2                                            : 148
+ 1-bit xor3                                            : 44
+ 1-bit xor4                                            : 48
+ 1-bit xor5                                            : 12
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <mixcol> ...
+
+Optimizing unit <mixcolword> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mixcol, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : mixcol.ngr
+Top Level Output File Name         : mixcol
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 256
+
+Cell Usage :
+# BELS                             : 236
+#      LUT2                        : 72
+#      LUT3                        : 16
+#      LUT4                        : 136
+#      MUXF5                       : 12
+# IO Buffers                       : 256
+#      IBUF                        : 128
+#      OBUF                        : 128
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      127  out of   4656     2%  
+ Number of 4 input LUTs:                224  out of   9312     2%  
+ Number of IOs:                         256
+ Number of bonded IOBs:                 256  out of    232   110% (*) 
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 7.388ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 796 / 128
+-------------------------------------------------------------------------
+Delay:               7.388ns (Levels of Logic = 5)
+  Source:            in<116> (PAD)
+  Destination:       out<100> (PAD)
+
+  Data Path: in<116> to out<100>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.106   0.651  in_116_IBUF (in_116_IBUF)
+     LUT2:I0->O            3   0.612   0.603  m1/Mxor_out_28_xor0002_Result1 (m1/out_28_xor0002)
+     LUT4:I0->O            1   0.612   0.000  m1/Mxor_out<4>_xo<0>1 (m1/Mxor_out<4>_xo<0>)
+     MUXF5:I1->O           1   0.278   0.357  m1/Mxor_out<4>_xo<0>_f5 (out_100_OBUF)
+     OBUF:I->O                 3.169          out_100_OBUF (out<100>)
+    ----------------------------------------
+    Total                      7.388ns (5.777ns logic, 1.611ns route)
+                                       (78.2% logic, 21.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.98 secs
+ 
+--> 
+
+
+Total memory usage is 521432 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

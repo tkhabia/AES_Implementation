@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/tanmay/tanmay/vlsiProj/aes/keygeneration.xst" -ofn "/home/tanmay/tanmay/vlsiProj/aes/keygeneration.syr" 

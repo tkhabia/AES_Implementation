@@ -1,0 +1,57 @@
+Release 13.4 - xst O.87xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to /home/tanmay/tanmay/vlsiProj/aes/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> 
+Parameter xsthdpdir set to /home/tanmay/tanmay/vlsiProj/aes/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> 
+WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "sbox.v" in library work
+Compiling verilog file "mixcolword.v" in library work
+Module <sbox> compiled
+Compiling verilog file "substitutebyte.v" in library work
+Module <mixcolword> compiled
+Compiling verilog file "shiftrow.v" in library work
+Module <substitutebyte> compiled
+Compiling verilog file "mixcol.v" in library work
+Module <shiftrow> compiled
+Compiling verilog file "keygeneration.v" in library work
+Module <mixcol> compiled
+Compiling verilog file "roundlast.v" in library work
+Module <keygeneration> compiled
+Compiling verilog file "round.v" in library work
+Module <roundlast> compiled
+Compiling verilog file "encrypt.v" in library work
+Module <round> compiled
+Module <encrypt> compiled
+No errors in compilation
+Analysis of file <"encrypt.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> 
+
+
+Total memory usage is 477152 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
